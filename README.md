@@ -1,4 +1,4 @@
-# Hostel Hub — Complete Project (Room Change Request Feature Removed)
+# Hostel Room Management System
 
 This package restores the project without the student room-change request feature.
 It keeps the existing admin room management, AC/Non-AC facility, student registration,
