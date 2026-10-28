@@ -1,0 +1,2 @@
+const base=import.meta.env.VITE_API_URL||'http://localhost:5000/api';
+export async function api(path,options={}){const h={'Content-Type':'application/json',...(options.headers||{})};const t=localStorage.getItem('hostel_token');if(t)h.Authorization=`Bearer ${t}`;const r=await fetch(base+path,{...options,headers:h});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.message||'Request failed');return d;}

@@ -1,0 +1,826 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+/* =========================================
+   GLOBAL STYLES
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #f3f6fa;
+  color: #263b51;
+  font: 14px 'DM Sans', sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background: #245d87;
+  border-color: #245d87;
+}
+
+.btn-primary:hover {
+  background: #19486d;
+}
+
+/* =========================================
+   SIGN IN AND REGISTRATION PAGE
+   ========================================= */
+
+.auth {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+  align-items: stretch;
+}
+
+/* Left blue panel */
+
+.hero {
+  min-width: 0;
+  width: 100%;
+  min-height: 100%;
+  padding: 44px;
+  background: linear-gradient(145deg, #173451, #245b83);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font: 800 22px Manrope, sans-serif;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: #8cc8f6;
+}
+
+.hero > div:nth-child(2) {
+  max-width: 490px;
+  margin: 40px 0;
+}
+
+.hero small,
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  color: #8fc7f3;
+  font-weight: 800;
+}
+
+.hero h1 {
+  font: 800 clamp(30px, 4vw, 48px) Manrope, sans-serif;
+  line-height: 1.12;
+  margin: 16px 0;
+}
+
+.hero p {
+  line-height: 1.9;
+  color: #d1e1ef;
+}
+
+/* Right-side authentication panel.
+   Center the form horizontally and vertically. */
+
+.authbox {
+  width: min(460px, calc(100% - 64px));
+  max-width: 460px;
+  min-width: 0;
+  margin: auto;
+  padding: 35px 0;
+  justify-self: center;
+  align-self: center;
+  box-sizing: border-box;
+}
+
+.authbox h2 {
+  font: 800 29px Manrope, sans-serif;
+  margin: 10px 0;
+  color: #243a51;
+  text-align: left;
+}
+
+.authbox > p {
+  color: #7f90a2;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+/* Authentication forms */
+
+.authbox form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.authbox label {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  color: #50677c;
+  margin: 14px 0;
+}
+
+.authbox input,
+.authbox select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 45px;
+  margin-top: 7px;
+  padding: 10px 14px;
+  border: 1px solid #d8e1e9;
+  border-radius: 7px;
+  background: #fff;
+  color: #344b61;
+  font-size: 12px;
+  outline: none;
+}
+
+.authbox input:focus,
+.authbox select:focus {
+  border-color: #3278b1;
+  box-shadow: 0 0 0 3px rgba(50, 120, 177, 0.1);
+}
+
+/* Sign in and registration buttons */
+
+.authbox form button[type='submit'] {
+  width: 100%;
+  min-height: 47px;
+  margin-top: 14px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  border-radius: 9px;
+}
+
+/* Account switching link */
+
+.switch {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 20px;
+  color: #7f90a2;
+}
+
+.switch button {
+  border: 0;
+  background: none;
+  color: #245d87;
+  font-weight: 800;
+  padding: 4px;
+}
+
+.switch button:hover {
+  text-decoration: underline;
+}
+
+/* Security information */
+
+.security {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  border-top: 1px solid #e7edf3;
+  padding-top: 20px;
+  margin-top: 30px;
+  color: #8a9bad;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   MAIN APPLICATION LAYOUT
+   ========================================= */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.side {
+  width: 245px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background: #173451;
+  color: #fff;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.side .logo {
+  margin: 0 6px;
+}
+
+.side > small {
+  margin: 38px 10px 12px;
+  color: #8caec9;
+  letter-spacing: 1.5px;
+}
+
+.side .active {
+  display: block;
+  padding: 13px 18px;
+  background: #294b6c;
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Room status card */
+
+.sidebar-note {
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid #35516b;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #d7e6f4;
+}
+
+.sidebar-note svg {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+.sidebar-note strong {
+  font-size: 13px;
+}
+
+.sidebar-note p {
+  margin: 10px 0 0;
+  color: #c6d8e8;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* Admin/student profile at sidebar bottom */
+
+.sidefoot {
+  margin-top: auto;
+  border-top: 1px solid #35516b;
+  padding-top: 16px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  grid-template-areas:
+    "avatar info"
+    "logout logout";
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 12px;
+  min-width: 0;
+}
+
+.avatar {
+  grid-area: avatar;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf3fb;
+  color: #245d87;
+  font-weight: 800;
+}
+
+.user-info {
+  grid-area: info;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.user-info b {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.user-info small,
+.sidefoot small {
+  color: #b7ccde;
+  font-size: 11px;
+}
+
+/* Sign out button */
+
+.logout-btn {
+  grid-area: logout;
+  width: 100%;
+  min-height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid #55718b;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font: 700 12px 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #294b6c;
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.main header {
+  min-height: 64px;
+  background: #fff;
+  border-bottom: 1px solid #e1e8ef;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #8292a4;
+  font-size: 12px;
+}
+
+.content {
+  width: 100%;
+  max-width: 1450px;
+  padding: 28px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.heading small {
+  color: #5487b2;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  font-size: 10px;
+}
+
+.heading h1 {
+  font: 800 29px Manrope, sans-serif;
+  margin: 8px 0;
+  color: #243a51;
+}
+
+.heading p {
+  color: #8595a6;
+  font-size: 12px;
+}
+
+/* =========================================
+   DASHBOARD STATISTICS
+   ========================================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.stat,
+.card {
+  background: #fff;
+  border: 1px solid #e1e9f0;
+  border-radius: 11px;
+}
+
+.stat {
+  padding: 17px;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.stat > div {
+  grid-row: span 2;
+  background: #edf5ff;
+  color: #3278b1;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+}
+
+.stat small {
+  font-size: 9px;
+  letter-spacing: 0.7px;
+  color: #8798a9;
+  font-weight: 800;
+}
+
+.stat strong {
+  font: 800 23px Manrope, sans-serif;
+}
+
+/* =========================================
+   CARDS AND ROOM MANAGEMENT
+   ========================================= */
+
+.card {
+  margin-bottom: 18px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.roomform {
+  padding: 20px;
+}
+
+.roomform h3,
+.sectionhead h3,
+.dialog h3 {
+  font: 800 15px Manrope, sans-serif;
+  margin: 0 0 14px;
+}
+
+.roomform form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(100px, 0.7fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.roomform label {
+  display: block;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #50677c;
+}
+
+.roomform input,
+.roomform select,
+.dialog input,
+.dialog select {
+  width: 100%;
+  min-width: 0;
+  min-height: 39px;
+  margin-top: 7px;
+  padding: 9px 11px;
+  font-size: 12px;
+  border: 1px solid #d8e1e9;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+.roomform button {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   TABLE SECTION
+   ========================================= */
+
+.sectionhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 19px 20px;
+}
+
+.sectionhead h3 {
+  margin: 0;
+}
+
+.sectionhead p {
+  font-size: 11px;
+  color: #8a9bad;
+  margin: 5px 0 0;
+}
+
+/* Search input */
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 20px 14px;
+  padding: 0 11px;
+  border: 1px solid #dce5ed;
+  border-radius: 7px;
+  max-width: 460px;
+  color: #8495a7;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  flex: 1;
+  height: 36px;
+  font-size: 12px;
+  background: transparent;
+}
+
+.search span {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Table */
+
+.table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.table th {
+  background: #f7f9fc;
+  color: #8999aa;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  padding: 13px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.table td {
+  font-size: 12px;
+  padding: 14px;
+  color: #53697e;
+  border-top: 1px solid #e7edf3;
+}
+
+.table td b {
+  color: #263d54;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.actions .btn {
+  padding: 6px;
+}
+
+/* =========================================
+   STUDENT WELCOME PANEL
+   ========================================= */
+
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 22px;
+  color: #2d6c9e;
+  min-width: 0;
+}
+
+.welcome h3 {
+  font: 800 18px Manrope, sans-serif;
+  color: #263d54;
+}
+
+.welcome p {
+  margin: 0;
+  color: #8191a3;
+  line-height: 1.8;
+}
+
+/* =========================================
+   DIALOGS AND MODALS
+   ========================================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #10273dbb;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.dialog {
+  background: #fff;
+  border-radius: 13px;
+  padding: 23px;
+  width: min(100%, 430px);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.dialog p {
+  color: #8191a3;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 1100px) {
+  .side {
+    width: 220px;
+  }
+
+  .content {
+    padding: 22px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .roomform form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .side {
+    width: 190px;
+    padding: 22px 14px;
+  }
+
+  .hero {
+    padding: 30px;
+  }
+
+  .authbox {
+    width: calc(100% - 44px);
+  }
+
+  .main header {
+    padding: 0 18px;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 700px) {
+  /* Authentication pages */
+
+  .auth {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 100vh;
+  }
+
+  .hero {
+    display: none;
+  }
+
+  .authbox {
+    width: calc(100% - 40px);
+    max-width: 460px;
+    padding: 30px 0;
+    margin: auto;
+  }
+
+  /* Application layout */
+
+  .side {
+    display: none;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .main header {
+    padding: 0 15px;
+  }
+
+  .heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .stat {
+    padding: 10px;
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
+
+  .stat > div {
+    width: 30px;
+    height: 30px;
+  }
+
+  .roomform form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sectionhead {
+    padding: 15px;
+  }
+
+  .table td {
+    padding: 10px;
+  }
+
+  .search {
+    margin: 0 12px 12px;
+  }
+
+  .welcome {
+    padding: 16px;
+  }
+}
+
+/* Small mobile screens */
+
+@media (max-width: 400px) {
+  .authbox h2 {
+    font-size: 25px;
+  }
+
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .buttons {
+    justify-content: stretch;
+  }
+
+  .buttons .btn {
+    flex: 1;
+  }
+}
+
